@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    </head>
+    <body class="container-fluid d-flex row justify-content-between align-items-top my-3 mx-3 bg-light text-primary">
+        
+        <div class="col-5 mx-3">
+            <div class="col-12 h1 my-3 text-black">New Dojo</div>
+            <form action="/save_dojo" method="POST" class="form px-1">
+                <div class="row align-items-center mb-3">
+                    <div class="col-auto">
+                        <label for="name" class="fs-4 mb-2 col-form-label" >Name:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <input type= "submit" class="fs-4" value="Create">
+                    </div>
+                    <div class="col-8"></div>
+                </div>
+                
+
+            </form>
+            
+
+
+        </div>
+
+        <div class="col-6 mx-3">
+            <div class="col-12 h1 my-3 mx-3 text-black">All Dojos</div>
+            <div class="col-9 border border-black px-3 py-4">
+                {% for dojo in dojos %}
+                    <div class="fs-4">
+                        <a href="/dojos/{{dojo['id']}}">{{dojo['name']}}</a>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <div class='col-9 my-5 px-3'>
+                <div class="fs-4 col">
+                    <a href="/ninjas">Add Ninja</a>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        
+
+        
+
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>  
+    </body>
+</html>
