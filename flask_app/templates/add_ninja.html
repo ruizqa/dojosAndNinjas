@@ -47,7 +47,7 @@
                         <label for="fname" class="fs-4 mb-2" >Dojo:</label>
                         <select class="form-select" name="dojo">
                             {% for dojo in dojos %}
-                                <option value="{{dojo['id']}}">{{dojo['name']}}</option>
+                                <option value="{{dojo.id}}">{{dojo.name}}</option>
                             {% endfor %}
                             
                         </select>

@@ -21,8 +21,12 @@ class Ninja:
     def get_ninja_info(cls,data):
         query = "SELECT * FROM ninjas WHERE id = %(id)s;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        user = connectToMySQL('dojos_and_ninjas_schema').query_db(query,data)
-        return user
+        result = connectToMySQL('dojos_and_ninjas_schema').query_db(query,data)
+        if len(result)<1:
+            return False
+        else:
+            return cls(result[0])
+            
     @classmethod
     def save(cls, data ):
         query = "INSERT INTO ninjas ( first_name , last_name , age , dojo_id, created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(age)s , %(dojo)s, NOW() , NOW() );"

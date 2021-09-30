@@ -41,8 +41,11 @@ class Dojo:
     def get_dojo_info(cls,data):
         query = "SELECT * FROM dojos WHERE name = %(name)s;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        dojo = connectToMySQL('dojos_and_ninjas_schema').query_db(query,data)
-        return dojo
+        result = connectToMySQL('dojos_and_ninjas_schema').query_db(query,data)
+        if len(result)<1:
+            return False
+        else:
+            return cls(result[0])
     @classmethod
     def save(cls, data ):
         query = "INSERT INTO dojos ( name , created_at, updated_at ) VALUES ( %(name)s , NOW() , NOW() );"

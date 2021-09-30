@@ -37,7 +37,7 @@
 
         <section>
             <div class="container col-lg-6 col-md-8 col-sm-10 offset-lg-3 offset-md-2 offset-sm-1">
-                <div class="h1 text-primary text-center mb-5 ">{{dojo['name']}} Ninjas</div>
+                <div class="h1 text-primary text-center mb-5 ">{{dojo.name}} Ninjas</div>
 
                 <table class="table table-secondary table-striped table-hover text-center">
                     <thead>
@@ -50,11 +50,11 @@
     
                     <tbody>
     
-                        {% for ninja in dojo['ninjas'] %}
+                        {% for ninja in dojo.ninjas %}
                             <tr>
-                                <td><span class="fs-4">{{ ninja['first_name'] }}</span></td>
-                                <td><span class="fs-4">{{ ninja['last_name'] }}</span></td>
-                                <td><span class="fs-4">{{ ninja['age'] }}</span></td>
+                                <td><span class="fs-4">{{ ninja.first_name }}</span></td>
+                                <td><span class="fs-4">{{ ninja.last_name }}</span></td>
+                                <td><span class="fs-4">{{ ninja.age }}</span></td>
                             </tr>
                         {% endfor %}
     
